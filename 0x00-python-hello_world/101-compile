@@ -1,2 +1,5 @@
-#!/usr/bin/python3
-python3 -m compileall -b $PYFILE"	
+#!/bin/bash
+echo "Compiling $PYFILE ..."
+python3 -c "import py_compile
+output = \"$PYFILE\" + \"c\"
+py_compile.compile(\"$PYFILE\", output)"
