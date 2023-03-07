@@ -5,7 +5,7 @@ number = random.randint(-10000, 10000)
 
 lastdigit = abs(number) % 10
 
-#get my conditions to output
+# get my conditions to output
 if number < 0:
     lastdigit = -lastdigit
 print(f"Last digit of {number:d} is {lastdigit:d} and is ", end="")
