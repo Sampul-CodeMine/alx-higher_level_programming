@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-def print_arg(argv):
+def show_arg_len(argv):
     arg_len = len(argv) - 1
     if arg_len == 0:
-        print("{:d} argument.".format(n))
+        print("{:d} argument.".format(arg_len))
         return
     else:
         if arg_len == 1:
@@ -16,4 +16,4 @@ def print_arg(argv):
 
 if __name__ == "__main__":
     import sys
-    print_arg(sys.argv)
+    show_arg_len(sys.argv)
