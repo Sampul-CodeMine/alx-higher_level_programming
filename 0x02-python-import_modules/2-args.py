@@ -1,20 +1,19 @@
 #!/usr/bin/python3
-
-# function to get the length of the arguments passed
-def get_arg_length(arg):
-    num = len(arg) - 1
-    if num == 0:
-        print("0 argument")
-    elif num == 1:
-        print("1 argument:")
+def print_arg(argv):
+    arg_len = len(argv) - 1
+    if arg_len == 0:
+        print("{:d} argument.".format(n))
+        return
     else:
-        print("{} arguments:".format(num))
-    return (num)
-
+        if arg_len == 1:
+            print("{:d} argument:".format(arg_len))
+        else:
+            print("{:d} arguments:".format(arg_len))
+        itr = 1
+        while itr <= arg_len:
+            print("{:d}: {:s}".format(itr, argv[i]))
+            itr += 1
 
 if __name__ == "__main__":
     import sys
-
-    counts = get_arg_length(sys.argv)
-    for n in range(counts):
-        print("{}: {}".format(n + 1, sys.argv[n + 1]))
+    print_arg(sys.argv)
