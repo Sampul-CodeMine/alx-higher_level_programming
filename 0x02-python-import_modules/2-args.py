@@ -11,7 +11,7 @@ def show_arg_len(argv):
             print("{:d} arguments:".format(arg_len))
         itr = 1
         while itr <= arg_len:
-            print("{:d}: {:s}".format(itr, argv[i]))
+            print("{:d}: {:s}".format(itr, argv[itr]))
             itr += 1
 
 if __name__ == "__main__":
