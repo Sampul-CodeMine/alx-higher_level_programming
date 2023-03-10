@@ -7,7 +7,7 @@ def print_reversed_list_integer(my_list=[]):
         my_list: list containing the integers to print
 
     Returns:
-        Return the list in reverse with each numbers on a new line 
+        Return the list in reverse with each numbers on a new line
     """
     length = len(my_list) - 1
     count = length
