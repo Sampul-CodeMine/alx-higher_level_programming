@@ -9,7 +9,8 @@ def max_integer(my_list=[]):
     Returns:
         Returns None if list is empty else return the biggest value
     """
-    if my_list is None:
+
+    if len(my_list) == 0:
         return
     biggest = my_list[0]
     for num in range(len(my_list)):
