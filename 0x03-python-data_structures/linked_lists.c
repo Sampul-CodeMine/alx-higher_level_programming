@@ -6,12 +6,12 @@
  * Return: number of nodes
  */
 
-size_t print_listint(const listint_t *h)
+size_t print_listint(const listint_t *head)
 {
 	const listint_t *current;
 	unsigned int n; /* number of nodes */
 
-	current = h;
+	current = head;
 	n = 0;
 	while (current != NULL)
 	{
