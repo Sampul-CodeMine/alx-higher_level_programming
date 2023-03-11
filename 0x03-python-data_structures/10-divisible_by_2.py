@@ -10,11 +10,6 @@ def divisible_by_2(my_list=[]):
         Returns None if list is empty else return the biggest value
     """
 
-    # using list comprehension
-    # list_bool = [True if (my_list[i] % 2 == 0) 
-    # else False for i in range(len(my_list))]
-    # return (list_bool)
-
     list_bool = []
     for i in range(len(my_list)):
         if my_list[i] % 2 == 0:
