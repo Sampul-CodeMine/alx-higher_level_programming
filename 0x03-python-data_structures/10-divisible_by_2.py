@@ -20,5 +20,5 @@ def divisible_by_2(my_list=[]):
     # using list comprehension
 
     list_bool = [True if (my_list[i] % 2 == 0)
-                 else False for i in range(len(my_list))]
+                else False for i in range(len(my_list))]
     return (list_bool) 
