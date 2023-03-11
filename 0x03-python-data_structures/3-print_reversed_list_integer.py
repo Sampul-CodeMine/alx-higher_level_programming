@@ -9,8 +9,8 @@ def print_reversed_list_integer(my_list=[]):
     Returns:
         Return the list in reverse with each numbers on a new line
     """
-    length = len(my_list) - 1
-    count = length
-    while count >= 0:
-        print("{:d}".format(my_list[count]))
-        count = count - 1
+    if my_list is None:
+        return
+    my_list.reverse()
+    for i in range(len(my_list)):
+        print("{:d}".format(my_list[i]))
