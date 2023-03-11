@@ -8,7 +8,7 @@ def divisible_by_2(my_list=[]):
 
     Returns:
         Returns None if list is empty else return the biggest value
-    
+
     list_bool = []
     for i in range(len(my_list)):
         if my_list[i] % 2 == 0:
@@ -17,9 +17,9 @@ def divisible_by_2(my_list=[]):
             list_bool.append(False)
     return (list_bool)
     """
-    
+
     # using list comprehension
 
     list_bool = [True if (my_list[i] % 2 == 0)
                 else False for i in range(len(my_list))]
-    return (list_bool) 
+    return (list_bool)
