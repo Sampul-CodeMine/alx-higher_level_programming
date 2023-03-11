@@ -10,6 +10,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     Returns:
         Returns tuple with 2 integers
     """
+
     new_tuple = ()
     tuple_1 = tuple_a + (0, 0)
     tuple_2 = tuple_b + (0, 0)
