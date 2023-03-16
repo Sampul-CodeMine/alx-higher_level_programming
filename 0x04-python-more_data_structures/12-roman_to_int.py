@@ -18,7 +18,7 @@ def roman_to_int(roman_string):
         int_equiv = 0
         for num in range(len(roman_string)):
             if num > 0 and roman_symbol[roman_string[num]] > \
-                roman_symbol[roman_string[num - 1]]:
+              roman_symbol[roman_string[num - 1]]:
                 int_equiv += roman_symbol[roman_string[num]] - 2 * \
                         roman_symbol[roman_string[num - 1]]
             else:
