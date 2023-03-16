@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Function square the values of all integers in a matrix
+"""Function to square the values of all integers in a matrix
 
     Args:
         matrix: the matrix to square all its value

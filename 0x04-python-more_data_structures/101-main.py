@@ -12,3 +12,7 @@ matrix = [
 new_matrix = square_matrix_map(matrix)
 print(new_matrix)
 print(matrix)
+# using list comprehension
+# return [[j * j for j in i] for i in matrix]
+# using map
+# return list(map(lambda row: list(map(lambda num: num * num, row)), matrix))
