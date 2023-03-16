@@ -15,18 +15,11 @@ Formular:
 
 
 def weight_average(my_list=[]):
-    if my_list is None:
+    if my_list is None or my_list == []:
         return (0)
-    sum_tup = 0
+    sum_score = 0
     sum_weight = 0
-    for tup in my_list:
-        sum_weight += tup[1]
-        sum_tup += multiplier(tup)
-    return (sum_tup / sum_weight)
-
-
-def multiplier(my_tup=()):
-    data = 1
-    for i in my_tup:
-        data *= i
-    return data
+    for score, weight in my_list:
+        sum_weight += weight
+        sum_score += score * weight
+    return (sum_score / sum_weight)
