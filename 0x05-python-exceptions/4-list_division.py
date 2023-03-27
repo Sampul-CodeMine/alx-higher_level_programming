@@ -12,24 +12,23 @@ def list_division(my_list_1, my_list_2, list_length):
         new list with length list_length containing products of both
         list elements
     """
-    list_new = []
-    l_div = 0
-    if (list_length <= 0):
+    new_list = []
+    index = 0
+    if list_length <= 0:
         print("out of range")
-        return list_new
-
-    for itr in range(0, list_length):
+        return new_list
+    while index < list_length:
         try:
-            l_div = my_list_1[itr] / my_list_2[itr]
-        except IndexError:
-            print("out of range")
-            l_div = 0
+            new_list.append(my_list_1[index] / my_list_2[index])
         except ZeroDivisionError:
-            print("division by zero")
-            l_div = 0
+            print("division by 0")
+            new_list.append(0)
         except TypeError:
             print("wrong type")
-            l_div = 0
+            new_list.append(0)
+        except IndexError:
+            print("out of range")
+            new_list.append(0)
         finally:
-            list_new.append(l_div)
-    return list_new
+            index += 1
+    return new_list
