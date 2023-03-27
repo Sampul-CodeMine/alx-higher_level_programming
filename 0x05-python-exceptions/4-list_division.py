@@ -14,6 +14,10 @@ def list_division(my_list_1, my_list_2, list_length):
     """
     list_new = []
     l_div = 0
+    if (list_length <= 0):
+        print("out of range")
+        return list_new
+
     for itr in range(0, list_length):
         try:
             l_div = my_list_1[itr] / my_list_2[itr]
