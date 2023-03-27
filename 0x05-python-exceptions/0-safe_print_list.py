@@ -10,17 +10,12 @@ def safe_print_list(my_list=[], x=0):
     Returns:
         The number of elements printed.
     """
-    if my_list == []:
-        return
     count = 0
-    while True:
+    for itr in range(x):
         try:
-            if count < x:
-                print("{}".format(my_list[count]), end="")
-                count += 1
-            else:
-                print()
-                return count
+            print("{}".format(my_list[itr]), end="")
+            count += 1
         except IndexError:
-            print()
-            return count
+            break
+    print("")
+    return count
