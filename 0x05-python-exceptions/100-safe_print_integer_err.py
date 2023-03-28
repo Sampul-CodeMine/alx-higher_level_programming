@@ -2,6 +2,7 @@
 
 import sys
 
+
 def safe_print_integer_err(value):
     """Function to print an integer with format {:d}
     If a ValueError occurs, an error message is printed to stderr
