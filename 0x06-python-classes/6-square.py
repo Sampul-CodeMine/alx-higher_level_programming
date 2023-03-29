@@ -40,8 +40,8 @@ class Square:
         """Setter for the position attribute/property for the Square class"""
         if (not isinstance(value, tuple) or len(value) != 2 or
                 not all(isinstance(itr, int) for itr in value) or
-                not all(num >= 0 for num in value)):
-            raise TypeError("size must be an integer")
+                not all(itr >= 0 for itr in value)):
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
 
