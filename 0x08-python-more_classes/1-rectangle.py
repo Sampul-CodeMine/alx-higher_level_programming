@@ -23,7 +23,7 @@ class Rectangle:
         def width(self, new_value):
             """Sets the value of the width for the rectangle"""
             if isinstance(new_value, int):
-                if new_value > 0:
+                if new_value >= 0:
                     self.__width == new_value
                 else:
                     raise ValueError("width must be >= 0")
@@ -40,7 +40,7 @@ class Rectangle:
         def height(self, new_value):
             """Sets the value of the height for the rectangle"""
             if isinstance(new_value, int):
-                if new_value > 0:
+                if new_value >= 0:
                     self.__height == new_value
                 else:
                     raise ValueError("height must be >= 0")
