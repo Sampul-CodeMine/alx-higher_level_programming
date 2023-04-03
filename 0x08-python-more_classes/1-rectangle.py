@@ -20,7 +20,7 @@ class Rectangle:
             return self.__width
 
         @width.setter
-        def width(self, new_value):
+        def __width(self, new_value):
             """Sets the value of the width for the rectangle"""
             if isinstance(new_value, int):
                 if new_value >= 0:
@@ -37,7 +37,7 @@ class Rectangle:
             return self.__height
 
         @height.setter
-        def height(self, new_value):
+        def __height(self, new_value):
             """Sets the value of the height for the rectangle"""
             if isinstance(new_value, int):
                 if new_value >= 0:
