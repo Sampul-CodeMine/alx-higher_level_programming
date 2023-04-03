@@ -10,8 +10,8 @@ class Rectangle:
             width: The width of the rectangle object (int)
             height: The height of the rectangle object (int)
         """
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
 
         """Getter and setter for the Width property"""
         @property
