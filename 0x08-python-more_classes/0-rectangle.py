@@ -3,4 +3,5 @@
 
 
 class Rectangle:
+    """This class represents a Rectangle object"""
     pass
