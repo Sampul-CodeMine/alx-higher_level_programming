@@ -1,0 +1,6 @@
+*.pyc
+*.exe
+*.a
+*.out
+__pycache__/*
+.idea
