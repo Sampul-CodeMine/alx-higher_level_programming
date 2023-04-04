@@ -73,6 +73,13 @@ class Rectangle:
             raise TypeError("value must be an integer")
         return 0
 
+    """Magic method to return a representation of rectangle class"""
+    def __repr__(self):
+        """Return the string representation of Rectangle class"""
+        rect_obj = "Rectangle(" + str(self.__width) +\
+                   ", " + str(self.__height) + ")"
+        return rect_obj
+
     """Magic method to return a printable representatn of rectangle class"""
     def __str__(self):
         """This method returns the printable representation of the Rectangle.
