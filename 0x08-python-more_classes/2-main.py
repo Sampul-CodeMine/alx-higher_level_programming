@@ -9,3 +9,9 @@ print("--")
 my_rectangle.width = 10
 my_rectangle.height = 3
 print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+
+my_rectangle = Rectangle(4, 12.2)
+print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+
+my_rectangle = Rectangle("4", 12.2)
+print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
