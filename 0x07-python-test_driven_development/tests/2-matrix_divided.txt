@@ -1,0 +1,170 @@
+===========================
+Documentation for 2-matrix_divided.py
+===========================
+
+This module defines a function that divides through a matrix or list with a provided integer divisor ``matrix_divided(matrix, div)``.
+
+Usage:
+=======
+
+The ``matrix_divided(...)`` returns a new list/matrix on the division of a list arguments having rows of integer elements with an integer divisor arguments.
+Note that quotients are rounded to a maximum of two decimal places.
+Also, the original list/matrix is left unchanged.
+::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [2, 3, 5],
+    ...     [7, 8, 9]
+    ... ]
+    >>> print(matrix_divided(matrix, 2))
+    [[1.0, 1.5, 2.5], [3.5, 4.0, 4.5]]
+
+The original matrix/list is unchanged.
+
+::
+    >>> print(matrix)
+    [[2, 3, 5], [7, 8, 9]]
+
+The function can also handle the following:
+- Negative signed matrix row elements
+- Netagive signed divisor value
+- Floating point numbers both for the matrix/list row elements and the divisor.
+- Negative signed floating point numbers both for the matrix/list row elements and the divisor.
+
+Negative Signed integer divisor
+
+::
+    >>> matrix = [
+    ...     [2, 3, 5],
+    ...     [7, 8, 9]
+    ... ]
+    >>> print(matrix_divided(matrix, -2))
+    [[-1.0, -1.5, -2.5], [-3.5, -4.0, -4.5]]
+
+For matrix/list row elements having negative signed integer numbers
+
+::
+
+   >>> matrix = [
+   ...     [-2, 3, -5],
+   ...     [7, -8, 9]
+   ... ]
+   >>> print(matrix_divided(matrix, 2))
+   [[-1.0, 1.5, -2.5], [3.5, -4.0, 4.5]]
+
+For matrix/list row elements having negative signed float numbers
+
+::
+
+   >>> matrix = [
+   ...     [-2.2, 3, -1.5],
+   ...     [7, -2.8, 9]
+   ... ]
+   >>> print(matrix_divided(matrix, 2))
+   [[-1.1, 1.5, -0.75], [3.5, -1.4, 4.5]]
+
+For matrix/list row elements having negative signed float numbers divided by a positive signed float divisor
+
+::
+
+   >>> matrix = [
+   ...     [-2.2, 3, -1.5],
+   ...     [7, -2.8, 9]
+   ... ]
+   >>> print(matrix_divided(matrix, 2.5))
+   [[-0.88, 1.2, -0.6], [2.8, -1.12, 3.6]]
+
+For matrix/list row elements having negative signed float numbers divided by a negative signed float divisor
+
+::
+
+   >>> matrix = [
+   ...     [-2.2, 3, -1.5],
+   ...     [7, -2.8, 9]
+   ... ]
+   >>> print(matrix_divided(matrix, -2.5))
+   [[0.88, -1.2, 0.6], [-2.8, 1.12, -3.6]]
+
+Invalid Divisor
+================
+
+The divisor ``div`` must be either a negatively or positively signed integer or float number.
+Divison by zero (0) will raise a ZeroDivisonError exception
+
+::
+
+   >>> matrix = [
+   ...     [2, 3, 5],
+   ...     [7, 8, 9]
+   ... ]
+   >>> print(matrix_divided(matrix, 0))
+   Traceback (most recent call last):
+   ZeroDivisionError: division by zero
+
+Divison by a string will raise a TypeError exception
+
+::
+
+   >>> matrix = [
+   ...     [2, 3, 5],
+   ...     [7, 8, 9]
+   ... ]
+   >>> print(matrix_divided(matrix, "0"))
+   Traceback (most recent call last):
+   TypeError: div must be a number
+
+Divison by a None datatype will raise a TypeError exception
+
+::
+
+   >>> matrix = [
+   ...     [2, 3, 5],
+   ...     [7, 8, 9]
+   ... ]
+   >>> print(matrix_divided(matrix, None))
+   Traceback (most recent call last):
+   TypeError: div must be a number
+
+Invalid Matrices
+==============
+The list ``matrix`` must consist of either positively or negatively signed integer or float elements. If ``matrix`` is not a list, a TypeError is raised.
+
+::
+
+   >>> matrix = "testing"
+   >>> print(matrix_divided(matrix, 0))
+   Traceback (most recent call last):
+   TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+If an empty list of lists passed as an argument, it will succeed.
+
+::
+
+    >>> matrix = [[]]
+    >>> print(matrix_divided(matrix, 2))
+    [[]]
+
+If the rows are not of the same size, a TypeError exception is thrown
+
+::
+
+    >>> matrix = [
+    ...     [2, 3, 5],
+    ...     [7, 8, 9, 10]
+    ... ]
+    >>> print(matrix_divided(matrix, 2))
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+If the row element is not float or integer type, a TypeError exception is thrown
+
+::
+
+    >>> matrix = [
+    ...     [2, 3, 5],
+    ...     [7, 8, "9"]
+    ... ]
+    >>> print(matrix_divided(matrix, 2))
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
