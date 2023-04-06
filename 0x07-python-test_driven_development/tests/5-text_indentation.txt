@@ -1,0 +1,96 @@
+===========================================
+Documentation for 5-text_indentation.py
+============================================
+
+This module defines a text-indentation function that takes a stream of
+stringed datatype (``text``) and wherever it encounters the characters
+[., ?, :], it wraps the next text to a new line.
+
+Usage
+==========================
+
+Importing the function from the module:
+::
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+    >>> text_indentation("Hello?It is me.")
+    Hello?
+    <BLANKLINE>
+    It is me.
+    <BLANKLINE>
+
+Checking for module docstring:
+::
+    >>> str = __import__("5-text_indentation").__doc__
+	>>> len(str) > 1
+	True
+
+No spaces are printed at the beginning of a line.
+::
+    >>> text_indentation("  Hello?It is me.")
+    Hello?
+    <BLANKLINE>
+    It is me.
+    <BLANKLINE>
+
+When blank spaces are provided as the parameter, it prints nothing
+::
+    >>> text_indentation("       ")
+
+White spaces after striped from both ends of the string
+::
+    >>> text_indentation("Hello?It is me.                ")
+    Hello?
+    <BLANKLINE>
+    It is me.
+    <BLANKLINE>
+
+::
+    >>> text_indentation("  Hello?It is me.    ")
+    Hello?
+    <BLANKLINE>
+    It is me.
+    <BLANKLINE>
+
+::
+    >>> text_indentation("  Hello?              It is me.         ")
+    Hello?
+    <BLANKLINE>
+    It is me.
+    <BLANKLINE>
+
+Printing the new line character within a text
+
+::
+    >>> text_indentation("Hello: It is me.\nCan we start?We\ncan start from where we stopped\n.")
+    Hello:
+    <BLANKLINE>
+    It is me.
+    <BLANKLINE>
+    <BLANKLINE>
+    Can we start?
+    <BLANKLINE>
+    We
+    can start from where we stopped
+    .
+    <BLANKLINE>
+
+Invalid Text
+============
+
+The parameter ``text`` must be a string. Otherwise, a TypeError is raised.
+
+::
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+    >>> text_indentation(2)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+    >>> text_indentation(["test", "text"])
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
