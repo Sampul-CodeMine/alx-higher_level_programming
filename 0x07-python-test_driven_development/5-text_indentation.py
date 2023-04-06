@@ -4,8 +4,10 @@ and ':' are encountered"""
 
 
 def text_indentation(text: str):
-    """Function to indent text when the `.`, `?`, `:` characters are encountered.
-    When these characters are encountered, it shift the text 2 new lines below
+    """Function to indent text when the `.`, `?`, `:` characters are
+    encountered. When these characters are encountered, it shift the
+    text 2 new lines below
+
     Args:
         text: The stream of text datatype to indent (str)
     Raises:
