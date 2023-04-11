@@ -5,10 +5,6 @@
 class BaseGeometry:
     """A class that represents a Geometric object"""
 
-    def __init__(self):
-        """Class constructor / Initializer"""
-        pass
-
     def area(self):
         """A public method that is not implemented"""
         raise Exception(f"area() is not implemented")
@@ -22,10 +18,7 @@ class BaseGeometry:
             TypeError: if the datatype of `value` is not integer
             ValueError: if `value` is < or = 0 (zero)
         """
-        if isinstance(value, int) or type(value) == int:
-            if value > 0:
-                ...
-            else:
-                raise ValueError("{} must be greater than 0".format(name))
-        else:
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+        if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
