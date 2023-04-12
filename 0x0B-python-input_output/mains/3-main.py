@@ -2,10 +2,13 @@
 to_json_string = __import__('3-to_json_string').to_json_string
 
 my_list = [1, 2, 3]
+print(my_list)
+print(type(my_list))
+print("----")
 s_my_list = to_json_string(my_list)
 print(s_my_list)
 print(type(s_my_list))
-
+print("----")
 my_dict = { 
     'id': 12,
     'name': "John",
@@ -16,10 +19,13 @@ my_dict = {
         'average': 3.14
     }
 }
+print(my_dict)
+print(type(my_dict))
+print("----")
 s_my_dict = to_json_string(my_dict)
 print(s_my_dict)
 print(type(s_my_dict))
-
+print("----")
 try:
     my_set = { 132, 3 }
     s_my_set = to_json_string(my_set)
