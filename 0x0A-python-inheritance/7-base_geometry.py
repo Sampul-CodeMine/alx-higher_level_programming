@@ -18,7 +18,7 @@ class BaseGeometry:
             TypeError: if the datatype of `value` is not integer
             ValueError: if `value` is < or = 0 (zero)
         """
-        if type(value) != int:
+        if not type(value) == int:
             raise TypeError("{:s} must be an integer".format(name))
         if not isinstance(value, int):
             raise TypeError("{:s} must be an integer".format(name))
