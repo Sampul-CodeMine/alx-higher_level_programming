@@ -1,0 +1,155 @@
+Documentation for ``7-base_geometry`` module
+===============================================
+This is a simple class that represents a BaseGeometry
+
+How to use ``BaseGeometry``
+===========================
+
+Import function from the module:
+::
+    >>> basegeo = __import__("7-base_geometry").BaseGeometry
+
+Check for docstring in the module:
+::
+    >>> mod = __import__("7-base_geometry").__doc__
+    >>> len(mod) > 1
+    True
+
+Check for docstring in the class:
+::
+    >>> cls = __import__("7-base_geometry").BaseGeometry.__doc__
+    >>> len(cls) > 1
+    True
+
+Check for docstrings in the class method:
+::
+    >>> cls_mod_area = __import__("7-base_geometry").BaseGeometry.area.__doc__
+    >>> len(cls_mod_area) > 1
+    True
+
+    >>> cls_mod_int_v = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+    >>> len(cls_mod_int_v) > 1
+    True
+
+Testing for the ``area`` method:
+=================================
+
+Check for failure Excepetions in the ``area`` method:
+::
+    >>> b = basegeo()
+    >>> b.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Check if extra parameters passed to the ``area`` method (int):
+::
+    >>> b.area(6)
+    Traceback (most recent call last):
+    ...
+    TypeError: area() takes 1 positional argument but 2 were given
+
+Check if extra parameters passed to the ``area`` method (str):
+::
+    >>> b.area("3)
+    Traceback (most recent call last):
+    ...
+    TypeError: area() takes 1 positional argument but 2 were given
+
+Testing for the ``integer_validator`` method:
+==============================================
+
+VALID INPUTS:
+===============
+::
+    >>> b.integer_validator("integer", 5)
+
+    >>> b.integer_validator("integer", 10)
+
+    >>> b.integer_validator("integer", 1)
+
+INVALID INPUTS:
+=================
+
+No Arguments:
+::
+    >>> b.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Only One Argument:
+::
+    >>> b.integer_validator("integer")
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+    >>> b.integer_validator(5)
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+Too many Arguments:
+::
+    >>> b.integer_validator("integer", 3, 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+
+Values Less than or equal to Zero:
+::
+    >>> b.integer_validator("integer", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: integer must be greater than 0
+
+    >>> b.integer_validator("integer", -10)
+    Traceback (most recent call last):
+    ...
+    ValueError: integer must be greater than 0
+    
+	 
+Values that are not Integer nor Instances of Integer
+::
+    >>> b.integer_validator("bool", False)
+    Traceback (most recent call last):
+    ...
+    TypeError: bool must be an integer
+
+    >>> b.integer_validator("float", 4.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: float must be an integer
+
+    >>> b.integer_validator("string", "ALX")
+    Traceback (most recent call last):
+    ...
+    TypeError: string must be an integer
+
+    >>> b.integer_validator("tuple", (4, 2))
+    Traceback (most recent call last):
+    ...
+    TypeError: tuple must be an integer
+
+    >>> b.integer_validator("list", [0, 2, 4])
+    Traceback (most recent call last):
+    ...
+    TypeError: list must be an integer
+
+    >>> b.integer_validator("dict", {"name": "ALX"})
+    Traceback (most recent call last):
+    ...
+    TypeError: dict must be an integer
+
+    >>> b.integer_validator("set", {"C", "is", "fun"})
+    Traceback (most recent call last):
+    ...
+    TypeError: set must be an integer
+
+Misleading Values for ``name`` integer:
+::
+    >>> b.integer_validator("integer", [1, 3])
+    Traceback (most recent call last):
+    ...
+    TypeError: integer must be an integer
