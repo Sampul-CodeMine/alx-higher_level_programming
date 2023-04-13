@@ -13,12 +13,11 @@ def append_after(filename="", search_string="", new_string=""):
     Return:
         None
     """
-    with open(filename, mode="r+") as file_path:
-        lines = file_path.readlines()
-        itr = 0
-        for line in lines:
-            if not line.find(search_string) == -1:
-                lines.insert(itr + 1, new_string)
-            itr += 1
-        file_path.seek(0)
-        file_path.write("".join(lines))
+    text = ""
+    with open(filename, encoding="utf-8") as r:
+        for line in r:
+            text += line
+            if search_string in line:
+                text += new_string
+    with open(filename, "w") as w:
+        w.write(text)
