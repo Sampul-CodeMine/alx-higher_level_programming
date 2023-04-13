@@ -5,6 +5,10 @@
 class BaseGeometry:
     """A class with public instance methods area and integer_validator"""
 
+    def __init__(self):
+        """Class object initialization"""
+        ...
+
     def area(self):
         """A public method that is not implemented"""
         raise Exception("area() is not implemented")

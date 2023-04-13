@@ -1,5 +1,6 @@
-Documentation for ``7-base_geometry`` module
+Documentation for ``7-base_geometry.py`` module
 ===============================================
+
 This is a simple class that represents a BaseGeometry
 
 How to use ``BaseGeometry``
@@ -63,9 +64,7 @@ VALID INPUTS:
 ===============
 ::
     >>> b.integer_validator("integer", 5)
-
     >>> b.integer_validator("integer", 10)
-
     >>> b.integer_validator("integer", 1)
 
 INVALID INPUTS:
