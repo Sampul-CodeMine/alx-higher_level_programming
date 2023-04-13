@@ -27,10 +27,13 @@ class Student:
         dictionary else return the dictionary rep of the class
         """
         if type(attrs) == list:
+            result = dict()
             for item in attrs:
                 if type(item) == str:
-                    return {a: getattr(self, a)
-                            for a in attrs if hasattr(self, a)}
+                    for a in attrs:
+                        if hasattr(self, a):
+                            result[a] = getattr(self, a)
+            return result
         return self.__dict__
 
     def reload_from_json(self, json):
