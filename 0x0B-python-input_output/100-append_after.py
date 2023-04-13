@@ -13,7 +13,7 @@ def append_after(filename="", search_string="", new_string=""):
     Return:
         None
     """
-    with open(filename, mode='r+', encoding="utf-8") as file_path:
+    with open(filename, mode="r+") as file_path:
         lines = file_path.readlines()
         itr = 0
         for line in lines:
