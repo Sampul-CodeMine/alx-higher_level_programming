@@ -1,0 +1,8 @@
+idea
+*.exe
+*.out
+*.a
+tests/__pycache__/*
+models/__pycache__/*
+*.pyc
+*.swp
