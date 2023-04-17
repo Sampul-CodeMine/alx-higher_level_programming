@@ -9,13 +9,25 @@ from models.base import Base
 class Rectangle(Base):
     """This is a class that represents a Rectangle object"""
 
-    def __init__(self, width: int, height: int, x=0, y=0, id=None):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """Initialization of a new Rectangle object"""
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         self.x = x
         self.y = y
         super().__init__(id)
+
+    @staticmethod
+    def set_validation(attrib, value: int):
+        """Class static method that validates a value for its data type
+        and its value else raisesan exception"""
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(attrib))
+        if attrib == "x" or attrib == "y":
+            if value < 0:
+                raise ValueError("{} must be >= 0".format(attrib))
+        elif value <= 0:
+            raise ValueError("{} must be > 0".format(attrib))
 
     @property
     def width(self):
@@ -23,7 +35,7 @@ class Rectangle(Base):
         return self.__width
 
     @width.setter
-    def width(self, value: int):
+    def width(self, value):
         """Set the width of the Rectangle.
         Args:
             value (int): value is of type integer
@@ -31,13 +43,8 @@ class Rectangle(Base):
             ValueError: if the value passed is < or = 0
             TypeError: if the value passed is not of type integer
         """
-        if type(value) == int:
-            if value > 0:
-                self.__width = value
-            else:
-                raise ValueError("width must be > 0")
-        else:
-            raise TypeError("width must be an integer")
+        self.set_validation("width", value)
+        self.__width = value
 
     @property
     def height(self):
@@ -53,17 +60,12 @@ class Rectangle(Base):
             ValueError: if the value passed is < or = 0
             TypeError: if the value passed is not of type integer
         """
-        if type(value) == int:
-            if value > 0:
-                self.__height = value
-            else:
-                raise ValueError("height must be > 0")
-        else:
-            raise TypeError("height must be an integer")
+        self.set_validation("height", value)
+        self.__height = value
 
     @property
     def x(self):
-        """Get the x of the Rectangle."""
+        """Get the x coordinate of the Rectangle."""
         return self.__x
 
     @x.setter
@@ -75,13 +77,8 @@ class Rectangle(Base):
             ValueError: if the value passed is < 0
             TypeError: if the value passed is not of type integer
         """
-        if type(value) == int:
-            if value >= 0:
-                self.__x = value
-            else:
-                raise ValueError("x must be >= 0")
-        else:
-            raise TypeError("x must be an integer")
+        self.set_validation("x", value)
+        self.__x = value
 
     @property
     def y(self):
@@ -90,17 +87,12 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """Set the y of the Rectangle.
+        """Set the y coordinates of the Rectangle.
         Args:
             value (int): value is of type integer
         Raises:
-            ValueError: if the value passed is < or = 0
+            ValueError: if the value passed is < 0
             TypeError: if the value passed is not of type integer
         """
-        if type(value) == int:
-            if value >= 0:
-                self.__y = value
-            else:
-                raise ValueError("y must be >= 0")
-        else:
-            raise TypeError("y must be an integer")
+        self.set_validation("y", value)
+        self.__y = value
