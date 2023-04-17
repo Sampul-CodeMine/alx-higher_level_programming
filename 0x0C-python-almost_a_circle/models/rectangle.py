@@ -96,3 +96,31 @@ class Rectangle(Base):
         """
         self.set_validation("y", value)
         self.__y = value
+
+    def area(self):
+        """A Class method that finds the area of the Rectangle object
+        Returns:
+            int: product of `width` and `height`
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """A class module that prints out the shape of a Rectangle object
+        using the specified width, height, x and y coordinates"""
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+        for for_y in range(self.y):
+            print("")
+        for h_tag in range(self.height):
+            [print(" ", end="") for for_x in range(self.x)]
+            [print("#", end="") for w_tag in range(self.width)]
+            print("")
+
+    def __str__(self):
+        """A class module overwriting the class __magic method __str__"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x,
+                                                       self.y,
+                                                       self.width,
+                                                       self.height)
