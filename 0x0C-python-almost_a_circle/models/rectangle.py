@@ -176,7 +176,7 @@ class Rectangle(Base):
                     self.__setattr__(key, val)
 
     def to_dictionary(self):
-        """Class method to print a dictionary of all class attributes."""
+        """Class method to print a dictionary of all Rectangle attributes."""
         return {
             "id": self.id,
             "width": self.width,

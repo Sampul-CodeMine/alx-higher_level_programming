@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+
+import json
 """This Defines the `Base` Class for the Project"""
+"""importing the builtin JSON library"""
 
 
 class Base:
@@ -20,3 +23,30 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """A class method to stringify a list of dictionary into JSON"""
+        if type(list_dictionaries) == list and len(list_dictionaries) == 0:
+            return "[]"
+        return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Class methid that writes a JSON string rep of a list object
+        to a file.
+        Args:
+            cls (obj): a class instance
+            list_objs (list): a list of inherited Base Instances
+        """
+        output = []
+        fn = "{}.json".format(cls.__name__)
+        result = "[]" if list_objs is None or len(list_objs) == 0\
+            else [obj.to_dictionary() for obj in list_objs]
+
+        with open(fn, mode="w", encoding="utf-8") as f:
+            json.dump(result, f, indent=3)
+
+    def from_json_string(json_string):
+        """"""
+        ...
