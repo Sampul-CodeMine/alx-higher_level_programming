@@ -63,3 +63,12 @@ class Square(Rectangle):
                         self.id = val
                 else:
                     self.__setattr__(key, val)
+
+    def to_dictionary(self):
+        """Class method to print a dictionary of all Square attributes."""
+        return {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
