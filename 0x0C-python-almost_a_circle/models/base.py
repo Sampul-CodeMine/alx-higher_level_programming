@@ -27,7 +27,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """A class method to stringify a list of dictionary into JSON"""
-        if type(list_dictionaries) == list and len(list_dictionaries) == 0:
+        if list_dictionaries == [] or list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -45,7 +45,7 @@ class Base:
             else [obj.to_dictionary() for obj in list_objs]
 
         with open(fn, mode="w", encoding="utf-8") as f:
-            json.dump(result, f, indent=3)
+            f.write(Base.to_json_string(result))
 
     def from_json_string(json_string):
         """"""
