@@ -146,7 +146,7 @@ class Rectangle(Base):
         of the Rectangle object
         Args:
             *args (int): list of new attributes to update the class attribs.
-            **kwargs (dict):
+            **kwargs (dict): dictionary containing key/value for class attrib.
         """
         if args and len(args) != 0:
             count = 0
