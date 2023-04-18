@@ -172,11 +172,5 @@ class Rectangle(Base):
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = val
-                elif key == "width":
-                    self.width = val
-                elif key == "height":
-                    self.width = val
-                elif key == "x":
-                    self.width = val
-                elif key == "y":
-                    self.width = val
+                else:
+                    self.__setattr__(key, val)
