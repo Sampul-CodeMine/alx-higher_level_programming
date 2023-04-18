@@ -125,8 +125,12 @@ class Rectangle(Base):
                                                        self.width,
                                                        self.height)
 
-    def update(self, *args):
-        """This is a public class method that updates all class attributes"""
+    def _update__old(self, *args):
+        """This is a public class method that updates all class attributes
+        of the Rectangle object
+        Args:
+            *args (int): list of new attributes to update the class attribs.
+        """
         if len(args) > 0:
             try:
                 self.id = args[0]
@@ -136,3 +140,43 @@ class Rectangle(Base):
                 self.y = args[4]
             except IndexError:
                 pass
+
+    def update(self, *args, **kwargs):
+        """This is a public class method that updates all class attributes
+        of the Rectangle object
+        Args:
+            *args (int): list of new attributes to update the class attribs.
+            **kwargs (dict):
+        """
+        if args and len(args) != 0:
+            count = 0
+            for a in args:
+                if count == 0:
+                    if a is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = a
+                elif count == 1:
+                    self.width = a
+                elif count == 2:
+                    self.height = a
+                elif count == 3:
+                    self.x = a
+                elif count == 4:
+                    self.y = a
+                count += 1
+        elif kwargs and len(kwargs) != 0:
+            for key, val in kwargs.items():
+                if key == "id":
+                    if val is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = val
+                elif key == "width":
+                    self.width = val
+                elif key == "height":
+                    self.width = val
+                elif key == "x":
+                    self.width = val
+                elif key == "y":
+                    self.width = val
