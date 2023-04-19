@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 
 import json
+import csv
 """This Defines the `Base` Class for the Project"""
-"""importing the builtin JSON library"""
+"""importing the builtin JSONand csv libraries"""
 
 
 class Base:
@@ -26,17 +27,21 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """A class method to stringify a list of dictionary into JSON"""
+        """A class static method to stringify a list of dictionary into JSON
+        Args:
+            list_dictionaries (list): a list of dictionaries
+        Return:
+            A JSON string of python list object
+        """
         if list_dictionaries == [] or list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Class methid that writes a JSON string rep of a list object
+        """Class method that writes a JSON string rep of a list object
         to a file.
         Args:
-            cls (obj): a class instance
             list_objs (list): a list of inherited Base Instances
         """
         fn = "{}.json".format(cls.__name__)
@@ -44,7 +49,7 @@ class Base:
             if list_objs is None:
                 jf.write("[]")
             else:
-                list_obj = [o.to_dictionary() for o in list_objs]
+                list_obj = [obj.to_dictionary() for obj in list_objs]
                 jf.write(Base.to_json_string(list_obj))
 
     @staticmethod
