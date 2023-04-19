@@ -39,14 +39,23 @@ class Base:
             cls (obj): a class instance
             list_objs (list): a list of inherited Base Instances
         """
-        output = []
         fn = "{}.json".format(cls.__name__)
-        result = "[]" if list_objs is None or len(list_objs) == 0\
-            else [obj.to_dictionary() for obj in list_objs]
+        with open(fn, mode="w") as jf:
+            if list_objs is None:
+                jf.write("[]")
+            else:
+                list_obj = [o.to_dictionary() for o in list_objs]
+                jf.write(Base.to_json_string(list_obj))
 
-        with open(fn, mode="w", encoding="utf-8") as f:
-            f.write(Base.to_json_string(result))
-
+    @staticmethod
     def from_json_string(json_string):
-        """"""
-        ...
+        """Class Static method that returns the decoded object of JSON string.
+        Args:
+            json_string (str): A JSON str representation of a list of dicts.
+        Returns:
+            Empty list If json_string is None or empty - an empty list.
+            else - the Python list represented by json_string.
+        """
+        if json_string is None or json_string == "[]":
+            return []
+        return json.loads(json_string)
