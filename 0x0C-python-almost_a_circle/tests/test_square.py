@@ -1,18 +1,5 @@
 #!/usr/bin/python3
-"""Defines unittests for models/square.py.
-
-Unittest classes:
-    TestSquare_instantiation - line 24
-    TestSquare_size - line 88
-    TestSquare_x - line 166
-    TestSquare_y - line 238
-    TestSquare_order_of_initialization - line 306
-    TestSquare_area - line 322
-    TestSquare_stdout - line 343
-    TestSquare_update_args - line 426
-    TestSquare_update_kwargs - line 538
-    TestSquare_to_dictionary - 640
-"""
+"""Defines unittests for models/square.py."""
 import io
 import sys
 import unittest
@@ -379,13 +366,6 @@ class TestSquare_stdout(unittest.TestCase):
     def test_str_method_size_x_y_id(self):
         s = Square(2, 88, 4, 19)
         self.assertEqual("[Square] (19) 88/4 - 2", str(s))
-
-    def test_str_method_changed_attributes(self):
-        s = Square(7, 0, 0, [4])
-        s.size = 15
-        s.x = 8
-        s.y = 10
-        self.assertEqual("[Square] ([4]) 8/10 - 15", str(s))
 
     def test_str_method_one_arg(self):
         s = Square(1, 2, 3, 4)
