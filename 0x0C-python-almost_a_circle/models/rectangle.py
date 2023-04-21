@@ -178,9 +178,9 @@ class Rectangle(Base):
     def to_dictionary(self):
         """Class method to print a dictionary of all Rectangle attributes."""
         return {
+            "x": self.x,
+            "y": self.y,
             "id": self.id,
             "width": self.width,
-            "height": self.height,
-            "x": self.x,
-            "y": self.y
+            "height": self.height
         }
