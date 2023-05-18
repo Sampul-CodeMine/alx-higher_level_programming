@@ -136,6 +136,76 @@ SQL Statements for manipulating a DB are classified into:
 Relational Databases are DBs that stores data in tabular forms using a row and columns to represent and group data. A `row` represents a `record` while a `column` represents a `field` which is of a specified datatype.
 In a Relational Database, `PK - PRIMARY KEY` are used to uniquely identify a record, `FK - FOREIGN KEY` are used to link  2 or more columns within 2 or more tables in a database.
 
+## CREATING A NEW USER
+
+Upon installation, MySQL creates a root user account which you can use to manage your database. This user has full privileges over the MySQL server, meaning it has complete control over every database, table, user, and so on. Because of this, it’s best to avoid using this account outside of administrative functions. This step outlines how to use the root MySQL user to create a new user account and grant it privileges.
+
+To create a new user `sample` on the `localhost` with password `samplepassword` in MySQL,
+
+```bash
+$ mysql -u root -p
+Enter Password: *********
+mysql> CREATE USER 'sample'@'localhost' IDENTIFIED BY 'samplepassword';
+```
+
+## GRANTING PRIVILEGES TO NEW USER
+
+After creating your new user, you can grant them the appropriate privileges. Granting all privileges to a user `sample` to all tables in a particular database `test`
+
+```bash
+mysql> GRANT ALL PRIVILEGES ON test.* TO 'sample'@'localhost' WITH GRANT OPTION;
+```
+
+> _Note: that this statement also includes WITH GRANT OPTION. This will allow your MySQL user to grant any permissions that it has to other users on the system._
+
+## SHOWING THE USERS PRIVILEGES
+
+You can review a user’s current permissions by running the SHOW GRANTS command:
+
+```bash
+mysql> SHOW GRANTS FOR 'sample'@'localhost';
+```
+
+## DROPPING OR DELETING A USER
+
+Just as you can delete databases with `DROP`, you can use `DROP` to delete a user:
+
+```bash
+mysql> DROP USER 'sample'@'localhost';
+```
+
+## MYSQL CONSTRAINTS
+
+Constraints are placed on columns or tables. They limit the data that can be inserted into tables.
+
+- `NOT NULL`: A column with a `NOT NULL` constraint, cannot have NULL values.
+- `UNIQUE`: The `UNIQUE` constraint ensures that all data are unique in a column.
+- `PRIMARY KEY`: The `PRIMARY KEY` constraint uniquely identifies each record in a database table. It is a special case of unique keys. Primary keys cannot be NULL, unique keys can be. There can be more UNIQUE columns, but only one primary key in a table.
+- `FOREIGN KEY`: A FOREIGN KEY in one table points to a PRIMARY KEY in another table. It is a referential constraint between two tables. The foreign key identifies a column or a set of columns in one (referencing) table that refers to a column or set of columns in another (referenced) table.
+- `ENUM`: An ENUM is a string object with a value chosen from a list of permitted values. They are enumerated explicitly in the column specification at table creation time. `CREATE TABLE Student(Id INTEGER, Name VARCHAR(55), Gender ENUM('Male', 'Female', 'Others'));`
+- `SET`: A SET can have zero or more values. Each of the values must be chosen from a list of permitted values. `CREATE TABLE Students(Id INTEGER, Name VARCHAR(55), Certificates SET('A1', 'A2', 'B1', 'C1')); `
+
+## JOINING TABLES
+
+The real power and benefits from relational databases come from joining tables. The `SQL JOIN` clause combines records from two or more tables in a database. There are basically two types of joins: `INNER` and `OUTER`.
+
+### INNER JOIN
+
+The inner join is the most common type of joins. It is the default join also. The inner join selects only those records from database tables that have matching values. We have three types of `INNER JOINS`: 
+
+- INNER JOIN, 
+- NATURAL INNER JOIN, and 
+- CROSS INNER JOIN. 
+
+> _Note:The `INNER` keyword can be omitted._
+
+### OUTER JOIN
+
+An outer join does not require each record in the two joined tables to have a matching record. There are three types of outer joins. 
+
+- LEFT OUTER JOIN, 
+- RIGHT OUTER JOIN
+
 ---
 
 > Ehigboria Dukeson Oserefuame [Sampul-CodeMine](https://github.com/Sampul-CodeMine)
