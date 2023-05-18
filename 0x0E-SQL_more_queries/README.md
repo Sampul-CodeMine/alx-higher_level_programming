@@ -190,19 +190,19 @@ The real power and benefits from relational databases come from joining tables. 
 
 ### INNER JOIN
 
-The inner join is the most common type of joins. It is the default join also. The inner join selects only those records from database tables that have matching values. We have three types of `INNER JOINS`:
+The inner join is the most common type of joins. It is the default join also. The inner join selects only those records from database tables that have matching values. We have three types of `INNER JOINS`: 
 
-- INNER JOIN,
-- NATURAL INNER JOIN, and
-- CROSS INNER JOIN.
+- INNER JOIN, 
+- NATURAL INNER JOIN, and 
+- CROSS INNER JOIN. 
 
 > _Note:The `INNER` keyword can be omitted._
 
 ### OUTER JOIN
 
-An outer join does not require each record in the two joined tables to have a matching record. There are three types of outer joins.
+An outer join does not require each record in the two joined tables to have a matching record. There are three types of outer joins. 
 
-- LEFT OUTER JOIN,
+- LEFT OUTER JOIN, 
 - RIGHT OUTER JOIN
 
 ---
