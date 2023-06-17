@@ -13,7 +13,7 @@ if __name__ == '__main__':
                               password=sysarg[2], database=sysarg[3])
 
     cursor = connector.cursor()
-    query = "SELECT * FROM `states` WHERE `name` LIKE '{:s}' ORDER BY \
+    query = "SELECT * FROM `states` WHERE `name` LIKE BINARY '{:s}' ORDER BY \
             `id` ASC;".format(sysarg[4])
     cursor.execute(query)
     results = cursor.fetchall()
