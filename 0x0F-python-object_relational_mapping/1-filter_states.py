@@ -12,7 +12,7 @@ if __name__ == '__main__':
     connector = mysql.connect(host='localhost', port=3306, user=sysarg[1],
                               password=sysarg[2], database=sysarg[3])
     cursor = connector.cursor()
-    query = "SELECT * FROM `states` WHERE `name` LIKE BINAY 'N%' ORDER \
+    query = "SELECT * FROM `states` WHERE `name` LIKE BINARY 'N%' ORDER \
             BY `id` ASC;"
     cursor.execute(query)
     results = cursor.fetchall()
