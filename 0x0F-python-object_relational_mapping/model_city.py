@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
-from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base
-
-
 """A class that defines Cities and inherits Base instance from the model_state
 which is an instance of the declarative_base()
 """
+from sqlalchemy import Column, Integer, String, ForeignKey
+from model_state import Base
 
 
 class City(Base):
