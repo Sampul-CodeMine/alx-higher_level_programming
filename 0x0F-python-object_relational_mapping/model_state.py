@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-
+"""A class that defines State and Base which is an instance of
+the declarative_base()
+"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-
-
-"""A class that defines State and Base which is an instance of
-the declarative_base()
-"""
 
 
 class State(Base):
