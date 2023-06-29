@@ -3,7 +3,7 @@
 from an unsorted list"""
 
 
-def find_peak(numlist: list) -> int | None:
+def find_peak(numlist: list) -> int:
     """Function to find the peak from an unsorted list of integers
 
     Args:
