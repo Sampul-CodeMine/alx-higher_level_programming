@@ -25,7 +25,7 @@ def find_peak(list_of_integers: list) -> int | None:
             return (list_of_integers[0])
         else:
             return (list_of_integers[1])
-    """for i in range(num_len):
+    for i in range(num_len):
         v = list_of_integers[i]
         if ((i > 0 and i < (num_len - 1)) and (list_of_integers[i + 1] <= v)
                 and (list_of_integers[i - 1] <= v)):
@@ -34,9 +34,4 @@ def find_peak(list_of_integers: list) -> int | None:
             return (v)
         elif i == (num_len - 1) and list_of_integers[i - 1] <= v:
             return (v)
-    return None"""
-    v = list_of_integers[0]
-    for i in range(1, num_len):
-        if v <= list_of_integers[i]:
-            v = list_of_integers[i]
-    return v
+    return None
