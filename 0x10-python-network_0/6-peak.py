@@ -3,35 +3,45 @@
 from an unsorted list"""
 
 
-def find_peak(list_of_integers: list) -> int | None:
+def find_peak(numlist: list) -> int | None:
     """Function to find the peak from an unsorted list of integers
 
     Args:
-        list_of_integers (list): the list of unsorted integers
+        numlist (list): the list of unsorted integers
 
     Return:
         ...
     """
-    if type(list_of_integers) is not list:
+    if type(numlist) is not list:
+        return None
+    if numlist == [] or numlist is None:
         return None
 
-    num_len = len(list_of_integers)
+    num_len = len(numlist)
     if num_len == 0:
         return None
     if num_len == 1:
-        return (list_of_integers[0])
+        return (numlist[0])
     if num_len == 2:
-        if list_of_integers[0] >= list_of_integers[1]:
-            return (list_of_integers[0])
+        if numlist[0] >= numlist[1]:
+            return (numlist[0])
         else:
-            return (list_of_integers[1])
-    for i in range(num_len):
-        v = list_of_integers[i]
-        if ((i > 0 and i < (num_len - 1)) and (list_of_integers[i + 1] <= v)
-                and (list_of_integers[i - 1] <= v)):
-            return v
-        elif i == 0 and list_of_integers[i + 1] <= v:
-            return (v)
-        elif i == (num_len - 1) and list_of_integers[i - 1] <= v:
-            return (v)
-    return None
+            return (numlist[1])
+    half = num_len // 2
+    if (half - 1) < 0 and (half + 1) >= num_len:
+        return (numlist[half])
+    elif (half - 1) < 0:
+        if (numlist[half] > numlist[half + 1]):
+            return numlist[half]
+        else:
+            return numlist[half + 1]
+    elif (half + 1) >= num_len:
+        if (numlist[half] > numlist[half - 1]):
+            return numlist[half]
+        else:
+            return numlist[half - 1]
+    if numlist[half - 1] < numlist[half] > numlist[half + 1]:
+        return numlist[half]
+    if numlist[half + 1] > numlist[half - 1]:
+        return find_peak(numlist[half:])
+    return find_peak(numlist[:half])
