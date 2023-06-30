@@ -3,21 +3,21 @@
 from an unsorted list"""
 
 
-def find_peak(numlist: list) -> int:
+def find_peak(numlist: list):
     """Function to find the peak from an unsorted list of integers
-
     Args:
         numlist (list): the list of unsorted integers
-
     Return:
-        ...
+        (int) - the peak number
     """
     if type(numlist) is not list:
         return None
     if numlist == [] or numlist is None:
         return None
 
+    """get the length of the list"""
     num_len = len(numlist)
+
     if num_len == 0:
         return None
     if num_len == 1:
@@ -27,21 +27,16 @@ def find_peak(numlist: list) -> int:
             return (numlist[0])
         else:
             return (numlist[1])
-    half = num_len // 2
-    if (half - 1) < 0 and (half + 1) >= num_len:
+
+    """get half of middle of the list"""
+    half = int(((num_len - 0) // 2) + 0)
+
+    if ((numlist[half] >= numlist[half -1]) and\
+            (numlist[half] >= numlist[half + 1])):
         return (numlist[half])
-    elif (half - 1) < 0:
-        if (numlist[half] > numlist[half + 1]):
-            return numlist[half]
-        else:
-            return numlist[half + 1]
-    elif (half + 1) >= num_len:
-        if (numlist[half] > numlist[half - 1]):
-            return numlist[half]
-        else:
-            return numlist[half - 1]
-    if numlist[half - 1] < numlist[half] > numlist[half + 1]:
-        return numlist[half]
-    if numlist[half + 1] > numlist[half - 1]:
-        return find_peak(numlist[half:])
-    return find_peak(numlist[:half])
+
+    if ((half > 0) and (numlist[half] < numlist[half + 1])):
+        return (find_peak(numlist[half:]))
+
+    if ((half > 0) and (numlist[half] < numlist[half - 1])):
+        return (find_peak(numlist[:half]))
