@@ -31,7 +31,7 @@ def find_peak(numlist: list):
     """get half of middle of the list"""
     half = int(((num_len - 0) // 2) + 0)
 
-    if ((numlist[half] >= numlist[half -1]) and\
+    if ((numlist[half] >= numlist[half - 1]) and
             (numlist[half] >= numlist[half + 1])):
         return (numlist[half])
 
