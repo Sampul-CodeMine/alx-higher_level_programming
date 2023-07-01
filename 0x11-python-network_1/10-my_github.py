@@ -10,6 +10,7 @@ if __name__ == '__main__':
 
     u_name = sarg[1]
     u_pwd = sarg[2]
-    url = 'https://api.github.com/users/{}'.format(u_name)
-    data = req.get(url, auth=b_auth(u_name, u_pwd))
+    auth = b_auth(u_name, u_pwd)
+    url = 'https://api.github.com/user'
+    data = req.get(url, auth=auth)
     print(data.json().get('id'))
