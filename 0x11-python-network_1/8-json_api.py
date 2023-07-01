@@ -4,7 +4,7 @@ Python script that takes in a letter and sends a POST request to a given URL
 with the letter as a parameter
 """
 if __name__ == '__main__':
-    import sys.argv as sarg
+    from sys import argv as sarg
     import requests as req
 
     if len(sarg) == 1:
