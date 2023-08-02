@@ -1,3 +1,3 @@
-$('DIV#toggle_header').click(()=>{
+$('DIV#toggle_header').click(() => {
   $('header').toggleClass('green red');
 });
